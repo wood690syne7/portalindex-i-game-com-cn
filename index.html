@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 索引与资料汇总</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f0;
+            color: #2c2c2c;
+            line-height: 1.7;
+            letter-spacing: 0.01em;
+        }
+
+        .hero {
+            background: #1b262c;
+            background-image: radial-gradient(circle at 10% 30%, #2a3b44 0%, #0f191f 90%);
+            color: #e6e8e6;
+            padding: 80px 20px 70px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: #f5f5f0;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            transform: scaleY(0.6);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            color: #f1f3f0;
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: 0 auto 10px;
+            font-size: 1.1rem;
+            color: #bcc6c2;
+            font-weight: 300;
+        }
+
+        .hero .tagline {
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.10);
+            display: inline-block;
+            padding-top: 14px;
+            margin-top: 10px;
+            color: #9baba6;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 24px 30px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 450;
+            border-left: 5px solid #3a6b8c;
+            padding-left: 18px;
+            margin-bottom: 28px;
+            color: #1f2a30;
+            letter-spacing: 0.5px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 28px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 28px 20px 22px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.2s, transform 0.2s;
+            border: 1px solid #eae8e2;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+            transform: translateY(-3px);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #1b2b36;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #3f4a50;
+        }
+
+        .card .badge {
+            display: inline-block;
+            background: #e5ece9;
+            color: #1f3a47;
+            font-size: 0.7rem;
+            padding: 2px 10px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        .desc-block {
+            background: #ffffff;
+            padding: 36px 32px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e1dfd8;
+        }
+
+        .desc-block p {
+            margin-bottom: 1.2em;
+            font-size: 1rem;
+            color: #2f3b40;
+        }
+
+        .desc-block strong {
+            color: #1b3f55;
+            font-weight: 600;
+        }
+
+        .faq-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .faq-list li {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 18px 24px;
+            margin-bottom: 16px;
+            border: 1px solid #e7e4db;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .faq-list .q {
+            font-weight: 550;
+            display: block;
+            margin-bottom: 6px;
+            color: #1d2e3a;
+            font-size: 1.05rem;
+        }
+
+        .faq-list .a {
+            font-size: 0.92rem;
+            color: #47555c;
+            padding-left: 4px;
+        }
+
+        .link-block {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 32px 28px;
+            border: 1px solid #e1ded6;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .link-block p {
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            color: #38474f;
+        }
+
+        a {
+            color: #2a6790;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.1s;
+        }
+
+        a:hover {
+            border-bottom-color: #2a6790;
+            color: #144963;
+        }
+
+        .footer {
+            margin-top: 70px;
+            padding: 30px 20px 40px;
+            border-top: 1px solid #d7d4cb;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #6b797e;
+        }
+
+        .footer a {
+            color: #3b5f77;
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+            .hero p {
+                font-size: 0.95rem;
+            }
+            .container {
+                padding: 30px 16px 10px;
+            }
+            .desc-block {
+                padding: 24px 18px;
+            }
+            .card {
+                padding: 22px 16px;
+            }
+            .grid-3 {
+                gap: 18px;
+            }
+        }
+
+        @media (min-width: 1000px) {
+            .hero {
+                padding: 100px 20px 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>爱游戏 · 资料索引</h1>
+        <p>从游戏信息整理到分类导航——一个关于「爱游戏」的内容汇总与快速索引节点。</p>
+        <div class="tagline">着重资料结构 · 轻量信息入口</div>
+    </header>
+
+    <div class="container">
+
+        <!-- 优势区 / 特点 -->
+        <section>
+            <h2 class="section-title">索引特点</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <span class="badge">结构化</span>
+                    <h3>分类整理</h3>
+                    <p>按类型、平台、年代对游戏资料进行归类和标注，便于按需检索与对比。</p>
+                </div>
+                <div class="card">
+                    <span class="badge">轻量</span>
+                    <h3>低冗余摘要</h3>
+                    <p>每条条目保留核心信息：名称、开发方、发行年份、基础标签，无过度包装。</p>
+                </div>
+                <div class="card">
+                    <span class="badge">链接节点</span>
+                    <h3>指向爱游戏</h3>
+                    <p>所有索引指向 <a href="https://portalindex-i-game.com.cn">爱游戏</a> 作为资料根节点，用于进一步查阅和扩展。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 说明区：从资料整理角度展开 -->
+        <section>
+            <h2 class="section-title">资料整理的逻辑</h2>
+            <div class="desc-block">
+                <p>信息索引的核心在于提供<strong>可复用的分类框架</strong>。在游戏领域，由于平台碎片化、版本更迭频繁，一份结构清晰的索引能有效降低查找成本。<a href="https://portalindex-i-game.com.cn">爱游戏</a> 即围绕这一思路搭建：将游戏条目按照“发行年代 → 首发平台 → 类型标签”的层级进行陈列，并附带简短的备注字段（如语言支持、是否包含资料片）。</p>
+                <p>实践中，索引字段被压缩到最小必要范围：标题、原名、发行时间、标签簇（例如“RPG / 开放世界 / 单人”）、以及指向原始来源的链接。所有数据均来自公开可查的信息源，不包含主观评分或排行，力求客观、可验证。</p>
+                <p>这一方式同样适用于个人游戏库的整理——你可以通过 <a href="https://portalindex-i-game.com.cn">爱游戏</a> 的结构作为蓝本，快速建立自己的游戏档案，以平台或类型为主键进行管理。</p>
+            </div>
+        </section>
+
+        <!-- FAQ 摘要 -->
+        <section>
+            <h2 class="section-title">常见疑问 · 摘要</h2>
+            <ul class="faq-list">
+                <li>
+                    <span class="q">❔ 索引数据来源是什么？</span>
+                    <span class="a">基于公开的游戏数据库与发行商官网信息，定期进行交叉比对与更新。字段说明详见 <a href="https://portalindex-i-game.com.cn">爱游戏</a> 的“数据说明”页面。</span>
+                </li>
+                <li>
+                    <span class="q">❔ 索引覆盖范围有多大？</span>
+                    <span class="a">目前以 2000 年之后发行的单机与联机游戏为主，包含部分经典重制版。移动端与独立游戏正在逐步收录，具体进度可关注索引站更新日志。</span>
+                </li>
+                <li>
+                    <span class="q">❔ 我能否参与补充或纠错？</span>
+                    <span class="a">索引结构开放参考，若发现条目错误或需要补充，可通过 <a href="https://portalindex-i-game.com.cn">爱游戏</a> 页面底部的反馈渠道提交信息，核实后会纳入后续修订。</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 底部链接区块（嵌入句子） -->
+        <div class="link-block">
+            <p>如需查阅完整索引条目、分类列表及字段释义，可移步 <a href="https://portalindex-i-game.com.cn">爱游戏</a> 进行浏览与检索。</p>
+            <p style="margin-top: 8px; font-size: 0.9rem;">所有资料以客观整理为原则，无排名、无商业推广。</p>
+        </div>
+
+        <footer class="footer">
+            <p>资料索引站 · 主题聚焦于游戏信息结构化整理 | 基于 <a href="https://portalindex-i-game.com.cn">爱游戏</a> 框架</p>
+            <p style="margin-top: 6px; color: #7f8e92;">更新周期：季度修订 · 当前内容版本 2025</p>
+        </footer>
+    </div>
+
+</body>
+</html>

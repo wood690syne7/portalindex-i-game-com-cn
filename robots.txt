@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://wood690syne7.github.io/portalindex-i-game-com-cn/sitemap.xml
