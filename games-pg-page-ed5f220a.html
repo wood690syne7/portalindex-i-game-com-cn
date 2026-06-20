@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pg模拟器 · 资料索引与用途整理</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f7f8fa;
+            color: #1e2a3a;
+            line-height: 1.7;
+        }
+        a {
+            color: #2b6f9c;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        a:hover { border-bottom-color: #2b6f9c; }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(135deg, #0f1a2e 0%, #1d2d44 60%, #2a3f5a 100%);
+            color: #e9edf2;
+            padding: 80px 24px 64px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -30%; left: -20%;
+            width: 140%; height: 140%;
+            background: radial-gradient(circle at 70% 40%, rgba(75, 130, 190, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 680px;
+            margin: 0 auto;
+            opacity: 0.85;
+            position: relative;
+            z-index: 1;
+        }
+        .hero .sub {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 0.95rem;
+            background: rgba(255,255,255,0.06);
+            padding: 6px 18px;
+            border-radius: 30px;
+            color: #b8cfec;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 浅色正文区 */
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        /* 信息卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            margin: 40px 0 20px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 28px 24px 32px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.04);
+            transition: transform 0.2s ease, box-shadow 0.25s ease;
+            border: 1px solid #edf0f5;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.04), 0 4px 12px rgba(43,111,156,0.08);
+            border-color: #d6e2ef;
+        }
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 6px;
+            display: block;
+            color: #2b6f9c;
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 8px 0 10px;
+            color: #132433;
+        }
+        .card p, .card ul {
+            font-size: 0.95rem;
+            color: #3a4b5e;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .card li {
+            padding: 4px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+        .card li::before {
+            content: "·";
+            position: absolute;
+            left: 4px;
+            color: #2b6f9c;
+            font-weight: bold;
+        }
+
+        /* 自然链接段落区 */
+        .essay-block {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 36px 32px;
+            margin: 40px 0 30px;
+            border: 1px solid #edf0f5;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .essay-block h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #0f1a2e;
+            margin-bottom: 18px;
+            border-left: 4px solid #2b6f9c;
+            padding-left: 16px;
+        }
+        .essay-block p {
+            margin: 16px 0;
+            font-size: 1rem;
+            color: #2a3a4e;
+        }
+        .essay-block .highlight-link {
+            font-weight: 500;
+            border-bottom: 1px dashed #2b6f9c;
+        }
+
+        /* 适合人群小标签 */
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 18px 0 8px;
+        }
+        .tag {
+            background: #eef3f9;
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #1d3a57;
+            border: 1px solid #dce6f0;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            margin-top: 48px;
+            border-top: 1px solid #dce4ed;
+            padding-top: 32px;
+        }
+        .faq-item {
+            margin: 16px 0;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #132433;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+        .faq-item p {
+            color: #40556b;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            .hero { padding: 56px 20px 48px; }
+            .hero h1 { font-size: 2rem; }
+            .container { padding: 32px 18px 60px; }
+            .essay-block { padding: 28px 20px; }
+            .card { padding: 24px 18px 26px; }
+        }
+        @media (max-width: 460px) {
+            .hero h1 { font-size: 1.7rem; }
+            .card-grid { gap: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>pg模拟器 · 资料索引</h1>
+        <p>围绕信息整理与用途场景，持续梳理与功能卡片式导览</p>
+        <span class="sub">面向了解、比较与初步探索</span>
+    </header>
+
+    <div class="container">
+        <!-- 主视觉卡片：用途卡片 -->
+        <div class="card-grid">
+            <div class="card">
+                <span class="card-icon">📋</span>
+                <h3>功能用途</h3>
+                <ul>
+                    <li>模拟环境与流程预览</li>
+                    <li>逻辑演示与参数示意</li>
+                    <li>界面交互体验参考</li>
+                    <li>轻量级本地化测试</li>
+                </ul>
+            </div>
+            <div class="card">
+                <span class="card-icon">🧑‍💻</span>
+                <h3>适合人群</h3>
+                <p>内容创作者、产品评估者、学习爱好者、初步体验用户，以及需要快速了解模拟场景的团队。</p>
+                <div class="tag-group">
+                    <span class="tag">产品调研</span>
+                    <span class="tag">个人学习</span>
+                    <span class="tag">功能演示</span>
+                </div>
+            </div>
+            <div class="card">
+                <span class="card-icon">📚</span>
+                <h3>信息索引</h3>
+                <p>聚合常见模块、操作路径与界面构成。适合作为辅助参考，帮助快速建立整体认知。</p>
+                <ul>
+                    <li>模块结构概览</li>
+                    <li>流程节点说明</li>
+                    <li>参数配置示意</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 自然链接段落 -->
+        <div class="essay-block">
+            <h2>从资料整理的角度看 pg模拟器</h2>
+            <p>在日常信息归纳与功能对照中，模拟类工具往往扮演着“中间层”的角色——它将抽象的流程转化为可浏览、可拆解的结构，便于使用者按需查阅。如果你正在寻找一个相对完整的模拟环境来辅助理解或对比，<a href="https://games-pg-simulator.com">pg模拟器</a> 提供了一个可交互的参照空间，里面包含了多个场景下的界面与逻辑示意。</p>
+            <p>从内容索引的角度出发，这类环境的价值在于：它把原本分散的操作节点集中在一个页面内，你可以顺着模块的顺序查看每一步的呈现方式，而不需要四处翻找截图或文档。对于需要快速建立印象的人来说，这种“一站式”的信息排布方式往往比零散的说明更直观。</p>
+            <p>当然，每个使用者的关注点都不太一样。有的人更在意界面布局，有的人想了解参数变化如何影响展示，还有人只是希望有一个具体的例子来辅助自己的理解。无论出于哪种目的，<a href="https://games-pg-simulator.com" class="highlight-link">pg模拟器</a> 都适合作为一个起点，帮助你逐步搭建自己的认知框架。</p>
+            <p style="margin-top: 28px; font-size: 0.95rem; color: #4f657c; border-left: 2px solid #d0ddee; padding-left: 18px;">提示：本页面仅为资料索引与用途整理，不提供任何形式的诱导或承诺。所有信息请以实际环境为准。</p>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <h2 style="font-size: 1.3rem; font-weight: 500; color: #0f1a2e; margin-bottom: 18px;">常见关注点 · 简要摘录</h2>
+            <div class="faq-item">
+                <strong>这个模拟器适合用来做什么？</strong>
+                <p>主要适合用于功能预览、流程对照以及初步体验场景。可作为学习或评估时的辅助参考，帮助你快速了解整体结构。</p>
+            </div>
+            <div class="faq-item">
+                <strong>是否需要安装或配置？</strong>
+                <p>基于浏览器访问，无需下载安装。打开页面即可浏览各模块与示意流程，适合轻量级查阅。</p>
+            </div>
+            <div class="faq-item">
+                <strong>内容会经常更新吗？</strong>
+                <p>具体更新频率取决于维护方。建议定期访问以获取最新界面与功能变化，此处不设更新承诺。</p>
+            </div>
+        </div>
+
+        <!-- 页脚 仅留必要的引用 -->
+        <div style="margin-top: 60px; text-align: center; font-size: 0.85rem; color: #6b7f96; border-top: 1px solid #e3e9f0; padding-top: 28px;">
+            <span>资料整理 · 索引页 · 2025</span>
+        </div>
+    </div>
+</body>
+</html>
